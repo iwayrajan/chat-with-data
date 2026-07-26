@@ -7,3 +7,4 @@ deliverables/
 *.csv
 !test_data/**/*.csv
 !test_data/**/*.xlsx
+!tracker/*.xlsx

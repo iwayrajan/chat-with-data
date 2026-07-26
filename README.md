@@ -87,9 +87,34 @@ access at the OS level) if that's ever a concern for your deployment.
   sensibly (bar for comparisons, line for trends, pie for part-to-whole) but isn't
   guaranteed to match what a specific user has in mind.
 
+## Full delivery toolkit
+
+Mirroring the other two products, this repo also includes everything needed to
+package and sell this as a student project:
+
+- `docs/` — architecture and chart-routing diagrams (SVG + PNG)
+- `report_template/` — generates a full 8-chapter Word report (`generate_report.js`)
+- `presentation/` — generates a 14-slide PowerPoint deck (`generate_deck.js`)
+- `viva_prep/viva_question_bank.md` — Q&A bank, cheat sheet, and a 2-minute pitch script
+- `tracker/` — order tracker spreadsheet (canonical copy, spans all three products)
+- `scripts/generate_all.sh` — regenerates the report + deck and packages a delivery folder
+- `test_data/` — three ready-made sample datasets with suggested demo questions
+- `student_config.json` — the one file to edit per student; everything above reads from it
+
+To generate a delivery package for a new student:
+```bash
+# 1. Edit student_config.json with their details
+# 2. Run:
+bash scripts/generate_all.sh
+```
+This produces `deliverables/<student_name>/` with the report, deck, and viva bank
+ready to hand over (after you've swapped in real screenshots — see
+`report_template/README.md`).
+
 ## Files
 
 - `app.py` — Streamlit UI (upload, chat, chart/text rendering, code inspection)
 - `data_chat.py` — core pipeline: loading, schema summarization, prompt
   construction, sandboxed execution, retry logic
 - `requirements.txt` — dependencies
+
